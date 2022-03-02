@@ -1,27 +1,52 @@
 <template>
   <div>
       ask
-      <div v-for="ask in askList" :key="ask.id">
+      <!-- #1 <div v-for="ask in askList" :key="ask.id"> -->
+      <!-- #2 <div v-for="ask in asks" :key="ask.id"> -->
+      <div v-for="ask in fetchedAsk" :key="ask.id">
         {{ ask.title }}
       </div>
   </div>
 </template>
 
 <script>
-import { fetchAskList } from '../api/index.js';
+//move to store/index.js
+//import { fetchAskList } from '../api/index.js';
+
+import { mapState, mapGetters } from 'vuex';
 
 export default {
-  data() {
-    return {
-      askList: [],
-    }
-  },
+  // data() {
+  //   return {
+  //     askList: [],
+  //   }
+  // },
   created() {
-    const vm = this;
+    //move to store/index.js
+    // fetchAskList()
+    // .then(response => this.askList = response.data)
+    // .catch(response => console.log(response))
 
-    fetchAskList()
-    .then(response => this.askList = response.data)
-    .catch(response => console.log(response))
+    // -------------------------------
+
+    //vuex 로 옴겨진 비동기 데이터 통신 호출
+    this.$store.dispatch('FETCH_ASKS');
+  },
+  computed: {
+    // #1
+    // asks() {
+    //   return this.$store.state.asks;
+    // },
+    // #2 mapState
+    // ...mapState({
+    //   asks: state => state.asks
+    // })
+    // #3 mapHelper
+    ...mapGetters(
+      // { fetchedAsk:  'fetchedAsk' } //객체로 불러오기 - 주로 이름 바꿔 사용할때
+      ['fetchedAsk'] //store에 getters에 있는내용 바로 불러오기
+    ),
+
   }
 }
 </script>
