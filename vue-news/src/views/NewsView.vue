@@ -1,15 +1,19 @@
 <template>
   <div>
-      news
       <!-- <div v-for="news in newsList" :key="news.id">{{ news.title }}</div> -->
-      <div v-for="news in this.$store.state.news" :key="news.id">{{ news.title }}</div>
+      <!-- <div v-for="news in this.$store.state.news" :key="news.id">{{ news.title }}</div> -->
+      <p v-for="item in this.$store.state.news" :key="item.id">
+        <a v-bind:href="item.url">{{ item.title }}</a>
+        <small>{{ item.time_ago }} by </small>
+        <router-link v-bind:to="`/user/${item.user}`"> {{ item.user }} </router-link>
+      </p>
   </div>
 </template>
 
 <script>
 // move to /store/index.js
 //import axios from 'axios';
-
+//import { fetchNewsList } from '../api/index';
 
 export default {
   // data() {

@@ -1,11 +1,15 @@
 <template>
   <div>
-      ask
       <!-- #1 <div v-for="ask in askList" :key="ask.id"> -->
       <!-- #2 <div v-for="ask in asks" :key="ask.id"> -->
-      <div v-for="ask in fetchedAsk" :key="ask.id">
+      <!-- <div v-for="ask in fetchedAsk" :key="ask.id">
         {{ ask.title }}
-      </div>
+      </div> -->
+      <p v-for="item in fetchedAsk" :key="item.id">
+        <router-link v-bind:to="`/item/${item.id}`">{{ item.title }}</router-link>
+        <!-- <a v-bind:href="item.url">{{ item.title }}</a> -->
+        <small>{{ item.time_ago }} by {{ item.user }}</small>
+      </p>
   </div>
 </template>
 
