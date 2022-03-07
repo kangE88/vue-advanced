@@ -4,10 +4,27 @@
       <!-- <div v-for="job in this.$store.state.jobs" :key="job.id">
         {{ job.title }}
       </div> -->
-      <p v-for="item in this.$store.state.jobs" :key="item.id">
+      <!-- 스타일링 작업 전  <p v-for="item in this.$store.state.jobs" :key="item.id">
         <a v-bind:href="item.url">{{ item.title }}</a>
         <small>{{ item.time_ago }} by {{ item.domain }}</small>
-      </p>
+      </p>  스타일링 작업 전 -->
+      <ul class="jobs-list">
+        <li class="post" v-for="item in this.$store.state.jobs" :key="item.id">
+          <!-- 포인트 영역 -->
+          <div class="points">{{ item.points || 0}}</div>
+          <!-- 기타 정보 영역 -->
+          <div>
+            <p class="jobs-title">
+              <a :href="item.url">{{ item.title }}</a>
+            </p>
+            <small class="link-text">{{ item.time_ago }} by 
+            <a :href="item.url">
+              {{ item.domain }}
+            </a>
+            </small>
+          </div>
+        </li>
+      </ul>
   </div>
 </template>
 
@@ -39,6 +56,29 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.jobs-list {
+  margin: 0;
+  padding: 0;
+}
+.post {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+.points {
+  width: 80px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #42b883;
+}
+.jobs-title {
+  margin: 0;
+}
+.link-text {
+  color: #828282;
+}
 </style>
