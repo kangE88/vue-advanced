@@ -11,9 +11,9 @@ export default createStore({
     itemInfo: [],
   },
   getters: { //computed와 동일하고 store에 존재함
-    fetchedAsk(state) {
-        return state.asks;
-    },
+    // fetchedAsk(state) {
+    //     return state.asks;
+    // },
     // fetchedUserInfo(state) {
     //     return state.userInfo;
     // }

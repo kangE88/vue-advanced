@@ -16,7 +16,10 @@ import ToolBar from './components/ToolBar.vue';
 export default {
   components: {
     ToolBar,
-  }
+  },
+  // created(){
+  //   console.log(Component);
+  // }
 }
 </script>
 
