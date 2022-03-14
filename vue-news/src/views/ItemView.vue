@@ -2,7 +2,7 @@
     <div>
         <section>
             <!-- 질문 상세 정보 -->
-            <div>
+            <!-- <div>
                 <div class="user-container">
                     <div>
                         <i class="fa-solid fa-user-secret"></i>
@@ -16,8 +16,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            
+            </div> 공통화 진행 -->
+            <UserProFile :info="itemInfo">
+                <template v-slot:username>{{ itemInfo.user }}</template>
+                <template v-slot:time>{{ itemInfo.time_ago }}</template>
+            </UserProFile>
+        </section>
+        <section>
             <h2>{{ itemInfo.title }}</h2>
         </section>
         <section>
@@ -28,7 +33,10 @@
 </template>
 
 <script>
+import UserProFile from "../components/UserProFile";
+
 export default {
+  components: { UserProFile },
     created() {
         const userId = this.$route.params.id;
         this.$store.dispatch('FETCH_ITEM_INFO', userId);

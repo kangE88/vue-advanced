@@ -5,14 +5,21 @@
                 <i class="fa-solid fa-user-secret"></i>
             </div>
             <div class="user-description">
-                <div>
-                    {{ info.id }}
+                <!-- <div> -->
+                    <!-- {{ info.id }} -->
                     <!-- {{ userInfo.id }} -->
-                </div>
+                <!-- </div> -->
+                <slot name="username">
+                    <!-- 상위 컴포넌트에서 정의할 영역 -->
+                </slot>
                 <div class="time">
-                    {{ info.created }}
+                    <!-- {{ info.created }} -->
                     <!-- {{ userInfo.created }} -->
+                    <slot name="time">
+                        <!-- 상위 컴포넌트에서 정의할 영역 -->
+                    </slot>
                 </div>
+                <slot name="karma"></slot>
             </div>
         </div>
     </div>

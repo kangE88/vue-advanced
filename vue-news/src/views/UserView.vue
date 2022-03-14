@@ -4,8 +4,14 @@
         <p>karma : {{ userInfo.karma }}</p>
         <p>created : {{ userInfo.created }}</p>
     </div> -->
-    <!-- <UserProFile :propsdata="userInfo"></UserProFile> -->
-    <UserProFile :info="userInfo"></UserProFile>
+    <UserProFile :info="userInfo">
+        <template v-slot:username>{{ userInfo.id }}</template>
+        <template v-slot:time>{{ userInfo.created }}</template>
+        <template v-slot:karma>{{ userInfo.karma }}</template>
+        <!-- <div slot="username">{{ userInfo.id }}</div>
+        <template slot="time">{{ userInfo.created }}</template>
+        <div slot="karma">{{ userInfo.created }}</div> -->
+    </UserProFile>
 </template>
 
 <script>
