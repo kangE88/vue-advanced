@@ -5,21 +5,13 @@
                 <i class="fa-solid fa-user-secret"></i>
             </div>
             <div class="user-description">
-                <!-- <div> -->
-                    <!-- {{ info.id }} -->
-                    <!-- {{ userInfo.id }} -->
-                <!-- </div> -->
-                <slot name="username">
-                    <!-- 상위 컴포넌트에서 정의할 영역 -->
-                </slot>
+                <!-- 상위 컴포넌트에 가져올 영역 -->
+                <slot name="username"></slot>
                 <div class="time">
-                    <!-- {{ info.created }} -->
-                    <!-- {{ userInfo.created }} -->
-                    <slot name="time">
-                        <!-- 상위 컴포넌트에서 정의할 영역 -->
-                    </slot>
+                    <slot name="time"></slot>
+                    <slot name="karma"></slot>
                 </div>
-                <slot name="karma"></slot>
+                <!-- 상위 컴포넌트에 가져올 영역 -->
             </div>
         </div>
     </div>
@@ -30,13 +22,6 @@ export default {
     props: {
       info: Object  
     },
-    //computed: {
-        //...mapGetters(['fetchedUserInfo'])
-        //2 props 데이터로 info를 가져오기때문에 state를 사용하지 않아도 된다.
-        // userInfo() {
-        //     return this.$store.state.userInfo;
-        // }
-    //}
 }
 </script>
 

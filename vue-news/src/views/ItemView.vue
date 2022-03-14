@@ -2,24 +2,14 @@
     <div>
         <section>
             <!-- 질문 상세 정보 -->
-            <!-- <div>
-                <div class="user-container">
-                    <div>
-                        <i class="fa-solid fa-user-secret"></i>
-                    </div>
-                    <div class="user-description">
-                        <router-link :to="`/user/${itemInfo.user}`">
-                            {{ itemInfo.user }}
-                        </router-link>
-                        <div class="time">
-                            {{ itemInfo.time_ago }}
-                        </div>
-                    </div>
-                </div>
-            </div> 공통화 진행 -->
+            <!-- UserProFile -->
             <UserProFile :info="itemInfo">
-                <template v-slot:username>{{ itemInfo.user }}</template>
-                <template v-slot:time>{{ itemInfo.time_ago }}</template>
+                <template v-slot:username>
+                    <router-link :to="`/user/${itemInfo.user}`">
+                        {{ itemInfo.user }}
+                    </router-link>
+                </template>
+                <template v-slot:time>{{ 'Posted '+ itemInfo.time_ago }}</template>
             </UserProFile>
         </section>
         <section>
@@ -27,7 +17,7 @@
         </section>
         <section>
             <!-- 질문 댓글 -->
-            <div v-html="itemInfo.content"/> <!-- {{ itemInfo.content }} -->
+            <div v-html="itemInfo.content"/> <!-- {{ itemInfo.content }} 데이터가 태그로 들어가 있어 태그를 직접 넣을 때 사용 -->
         </section>
     </div>
 </template>
