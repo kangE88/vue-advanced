@@ -1,15 +1,20 @@
 <template>
-    <div>
+    <!-- <div>
         <p>name : {{ userInfo.id }}</p>
         <p>karma : {{ userInfo.karma }}</p>
         <p>created : {{ userInfo.created }}</p>
-    </div>
+    </div> -->
+    <!-- <UserProFile :propsdata="userInfo"></UserProFile> -->
+    <UserProFile :info="userInfo"></UserProFile>
 </template>
 
 <script>
-//ßimport { mapState, mapGetters } from 'vuex';
+import UserProFile from '../components/UserProFile';
 
 export default {
+    components: {
+        UserProFile,
+    },
     //https://api.hnpwa.com/v0/user/davideast.json
     created() {
         //this.$route.params.id 
@@ -17,14 +22,10 @@ export default {
         this.$store.dispatch('FETCH_USER_INFO', userName); //여러개면 객체로 넘겨준다.
     },
     computed: {
-        //...mapGetters(['fetchedUserInfo'])
+    // //     //...mapGetters(['fetchedUserInfo'])
         userInfo() {
             return this.$store.state.userInfo;
         }
     }
 }
 </script>
-
-<style>
-
-</style>
