@@ -5,21 +5,39 @@
       <transition name="fade">
         <component :is="Component" />
       </transition>
+      <Spinner :loading="loadingStatus"></Spinner> <!-- Loding Spinner -->
     </router-view>
   </div>
 </template>
 
 <script>
 
+import Spinner from './components/Spinner'
 import ToolBar from './components/ToolBar.vue';
+import Bus from './utils/bus';
 
 export default {
   components: {
+    Spinner,
     ToolBar,
   },
-  // created(){
-  //   console.log(Component);
-  // }
+  data() {
+    return {
+      loadingStatus: false,
+    }
+  },
+  methods: {
+    startSpinner() {
+      this.loadingStatus = true;
+    },
+    endSpinner() {
+      this.loadingStatus = false;
+    }
+  },
+  created(){
+    Bus.$on('start:spinner', this.startSpinner);
+    Bus.$on('end:spinner', this.endSpinner);
+  }
 }
 </script>
 
