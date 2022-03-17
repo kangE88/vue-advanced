@@ -32,28 +32,29 @@
 export default {
     created() {
       
-      const routeName = this.$route.name;
+      //const routeName = this.$route.name;
 
        //vuex 로 옴겨진 비동기 데이터 통신 호출 route.name 에 따라 분기 호출
-      if (routeName === 'News') {
-        this.$store.dispatch('FETCH_NEWS');
-      } else if(routeName === 'Ask') {
-        this.$store.dispatch('FETCH_ASKS');
-      } else if(routeName === 'Jobs') {
-        this.$store.dispatch('FETCH_JOBS');
-      }
+      // if (routeName === 'News') {
+      //   this.$store.dispatch('FETCH_NEWS');
+      // } else if(routeName === 'Ask') {
+      //   this.$store.dispatch('FETCH_ASKS');
+      // } else if(routeName === 'Jobs') {
+      //   this.$store.dispatch('FETCH_JOBS');
+      // }
     },
     computed: {
       listItems() {
-        const routeName = this.$route.name;
+        // const routeName = this.$route.name;
 
-        if (routeName === 'News') {
-          return this.$store.state.news;
-        } else if (routeName === 'Ask') {
-          return this.$store.state.asks;
-          } else if (routeName === 'Jobs') {
-          return this.$store.state.jobs;
-        }
+        // if (routeName === 'News') {
+        //   return this.$store.state.news;
+        // } else if (routeName === 'Ask') {
+        //   return this.$store.state.asks;
+        //   } else if (routeName === 'Jobs') {
+        //   return this.$store.state.jobs;
+        // }
+        return this.$store.state.list;
       }
     }
 }

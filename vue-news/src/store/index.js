@@ -4,11 +4,13 @@ import mutations from './mutations';
 
 export default createStore({
   state: {
-    news: [],
-    asks: [],
-    jobs: [],
+    /** 하이오더컴포넌트를 사용함에 따라 세개는 list로 변경됨 */
+    // news: [],
+    // asks: [],
+    // jobs: [],
     userInfo: {},
     itemInfo: [],
+    list: [],
   },
   getters: { //computed와 동일하고 store에 존재함
     // fetchedAsk(state) {

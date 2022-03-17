@@ -14,7 +14,7 @@
 
 import Spinner from './components/Spinner'
 import ToolBar from './components/ToolBar.vue';
-import Bus from './utils/bus';
+// import Bus from './utils/bus';
 
 export default {
   components: {
@@ -35,8 +35,14 @@ export default {
     }
   },
   created(){
-    Bus.$on('start:spinner', this.startSpinner);
-    Bus.$on('end:spinner', this.endSpinner);
+    // Bus.$on('start:spinner', this.startSpinner);
+    // Bus.$on('end:spinner', this.endSpinner);
+    this.emitter.on("start:spinner", this.startSpinner);
+    this.emitter.on("end:spinner", this.endSpinner);
+  },
+  beforeDestroy() {
+    this.emitter.$off("start:spinner", this.startSpinner);
+    this.emitter.$off("end:spinner", this.endSpinner);
   }
 }
 </script>

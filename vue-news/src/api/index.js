@@ -16,6 +16,9 @@ function fetchAskList() {
 function fetchJobsList() {
     return axios.get(`${config.baseUrl}jobs/1.json`);
 }
+function fetchList(pageName) {
+  return axios.get(`${config.baseUrl}${pageName}/1.json`);
+}
 
 function fetchUserInfo(userName) {
     return axios.get(`${config.baseUrl}user/${userName}.json`);
@@ -26,6 +29,8 @@ function fetchItemInfo(userId){
   //https://api.hnpwa.com/v0/item/13831370.json
 }
 
+
+
 /*
 News	https://api.hnpwa.com/v0/news/1.json
 Newest	https://api.hnpwa.com/v0/newest/1.json
@@ -34,4 +39,4 @@ Show	https://api.hnpwa.com/v0/show/1.json
 Jobs	https://api.hnpwa.com/v0/jobs/1.json
 */
 
-export { fetchNewsList, fetchAskList, fetchJobsList, fetchUserInfo, fetchItemInfo };
+export { fetchNewsList, fetchAskList, fetchJobsList, fetchList, fetchUserInfo, fetchItemInfo };
