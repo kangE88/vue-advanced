@@ -4,7 +4,7 @@ import { fetchList, fetchUserInfo, fetchItemInfo } from "../api/index.js";
 export default {
     // 비동기 데이터 호출
     // FETCH_NEWS(context) {
-    //   fetchNewsList()
+    //   return fetchNewsList()
     //     .then((response) => {
     //         console.log(response);
     //         // this.state.news = response.data;
@@ -16,27 +16,27 @@ export default {
     // },
     // //디스트럭처링 처리
     // FETCH_ASKS({ commit }) {
-    //     fetchAskList()
+    //     return fetchAskList()
     //         .then( ({ data }) => { commit("SET_ASKS", data) })
     //         .catch(error => { console.log(error) });
     // },
     // FETCH_JOBS({ commit }) {
-    //     fetchJobsList()
+    //     return fetchJobsList()
     //         .then(({ data }) => { commit('SET_JOBS', data) })
     //         .catch(error => { console.log(error); });
     // },
     FETCH_USER_INFO({ commit }, userName) {
-        fetchUserInfo(userName)
+        return fetchUserInfo(userName)
             .then(({ data }) => { commit("SET_USER_INFO", data); })
             .catch(error => { console.log(error); });
     },
     FETCH_ITEM_INFO({ commit }, userId) {
-        fetchItemInfo(userId)
+        return fetchItemInfo(userId)
             .then(({ data }) => { commit("SET_ITEM_INFO", data); })
             .catch(error => { console.log(error); });
     },
     FETCH_LIST({ commit }, pageName){
-        fetchList(pageName)
+        return fetchList(pageName)
             .then(({ data }) =>{ commit('SET_LIST', data) })
             .catch(error => { console.log(error); });
 

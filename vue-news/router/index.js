@@ -4,7 +4,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 // import AskView from '../src/views/AskView.vue';
 import UserView from "../src/views/UserView.vue";
 import ItemView from "../src/views/ItemView.vue";
-//import createListView from '../src/views/CreateListView'; 
+import createListView from '../src/views/CreateListView'; 
 
 
 //Vue.use(VueRouter);
