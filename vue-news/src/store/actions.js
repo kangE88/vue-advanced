@@ -36,9 +36,12 @@ export default {
             .catch(error => { console.log(error); });
     },
     FETCH_LIST({ commit }, pageName){
+        //case 1
         return fetchList(pageName)
-            .then(({ data }) =>{ commit('SET_LIST', data) })
+            .then(({ data }) =>{ 
+                commit('SET_LIST', data);
+                return data;
+            })
             .catch(error => { console.log(error); });
-
     }
 }

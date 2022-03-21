@@ -28,9 +28,11 @@ export default {
   },
   methods: {
     startSpinner() {
+      console.log('start');
       this.loadingStatus = true;
     },
     endSpinner() {
+      console.log('end');
       this.loadingStatus = false;
     }
   },
@@ -39,10 +41,11 @@ export default {
     // Bus.$on('end:spinner', this.endSpinner);
     this.emitter.on("start:spinner", this.startSpinner);
     this.emitter.on("end:spinner", this.endSpinner);
+    console.log(this.loadingStatus);
   },
   beforeDestroy() {
-    this.emitter.$off("start:spinner", this.startSpinner);
-    this.emitter.$off("end:spinner", this.endSpinner);
+    this.emitter.stop("start:spinner", this.startSpinner);
+    this.emitter.stop("end:spinner", this.endSpinner);
   }
 }
 </script>

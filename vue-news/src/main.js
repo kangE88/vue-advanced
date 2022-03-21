@@ -5,7 +5,7 @@ import store from './store';
 //import Bus from './utils/bus'
 //eventBus -> mitt
 import mitt from "mitt";
-const emitter = mitt();
+export const emitter = mitt();
 const app = createApp(App);
 app.config.globalProperties.emitter = emitter;
 app.use(router).use(store).mount("#app");

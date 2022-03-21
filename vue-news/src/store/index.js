@@ -2,7 +2,7 @@ import { createStore } from "vuex";
 import actions from './actions';
 import mutations from './mutations';
 
-export default createStore({
+const store = createStore({
   state: {
     /** 하이오더컴포넌트를 사용함에 따라 세개는 list로 변경됨 */
     // news: [],
@@ -23,4 +23,6 @@ export default createStore({
   //mutations: mutations, -> 앞뒤가 같기때문에 아래와 같이 사용 가능
   mutations,
   actions
-});
+})
+
+export default store

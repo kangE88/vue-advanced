@@ -26,6 +26,5 @@ export default {
   //   }, 3000);
   // },
   mixins: [ListMixin],
-
 }
 </script>
