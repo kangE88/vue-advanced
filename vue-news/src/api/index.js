@@ -10,8 +10,14 @@ function fetchNewsList() {
     //return axios.get('https://api.hnpwa.com/v0/news/1.json');
     return axios.get(`${config.baseUrl}news/1.json`);
 }
-function fetchAskList() {
-    return axios.get(`${config.baseUrl}ask/1.json`);
+async function fetchAskList() {
+  try {
+    const response = await axios.get(`${config.baseUrl}ask/1.json`);
+    return response;
+    //return await axios.get(`${config.baseUrl}ask/1.json`);
+  } catch (error) {
+    console.log(error);
+  }
 }
 function fetchJobsList() {
     return axios.get(`${config.baseUrl}jobs/1.json`);
